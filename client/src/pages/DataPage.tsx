@@ -6,7 +6,7 @@ const DataTablePage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate("/");
+    navigate(-1);
   };
 
   return (
