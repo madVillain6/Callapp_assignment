@@ -13,13 +13,6 @@
     "gender": "male",
     "address": { "street": "Cranberry Street", "city": "New York" }
   },
-  {
-    "id": 14,
-    "name": "Lauren Fox",
-    "email": "laurenfox@gology.com",
-    "gender": "male",
-    "address": { "street": "Prospect Place", "city": "Los Angeles" }
-  },
   {},
   {
     "id": 2,
@@ -141,14 +134,7 @@
     "address": { "street": "Leonard Street", "city": "Los Angeles" },
     "phone": "+1 (938) 556-2430"
   },
-  {
-    "id": 27,
-    "name": "Lillian Johnson",
-    "email": "lillianjohnson@gology.com",
-    "gender": "female",
-    "address": { "street": "Himrod Street", "city": "Chicago" },
-    "phone": "+1 (804) 459-3296"
-  },
+  {},
   {
     "id": 28,
     "name": "Mcfarland Humphrey",
@@ -412,14 +398,7 @@
     "address": { "street": "Nassau Avenue", "city": "New York" },
     "phone": "+1 (833) 549-3771"
   },
-  {
-    "id": 69,
-    "name": "Anita Branch",
-    "email": "anitabranch@gology.com",
-    "gender": "female",
-    "address": { "street": "Nassau Avenue", "city": "New York" },
-    "phone": "+1 (833) 549-3771"
-  },
+  {},
   {
     "id": 70,
     "name": "Downs Hatfield",
@@ -434,14 +413,6 @@
     "email": "awdawda",
     "gender": "male",
     "address": { "street": "awdawdwad", "city": "awdawd" }
-  },
-  {
-    "id": 62,
-    "name": "adawd",
-    "email": "awdawd",
-    "gender": "female",
-    "Address": "awdwad",
-    "City": "awdwad"
   },
   {
     "id": 64,
