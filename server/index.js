@@ -1,7 +1,7 @@
 const express = require("express");
-const app = express();
 const cors = require("cors");
 const fs = require("fs");
+const app = express();
 
 const port = 3000;
 
@@ -45,6 +45,8 @@ app.post("/api/data", (req, res) => {
     }
   });
 });
+
+//put method
 
 app.put("/api/data/:id", (req, res) => {
   const id = Number(req.params.id);

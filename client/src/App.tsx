@@ -8,13 +8,11 @@ import ChartPage from "./pages/Chart";
 const App: React.FC = () => {
   return (
     <Router>
-      <div>
-        <Routes>
-          <Route path="/" Component={Home} />
-          <Route path="/datatable" Component={DataTablePage} />
-          <Route path="/chartpage" Component={ChartPage} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" Component={Home} />
+        <Route path="/datatable" Component={DataTablePage} />
+        <Route path="/chartpage" Component={ChartPage} />
+      </Routes>
     </Router>
   );
 };
