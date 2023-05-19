@@ -1,20 +1,6 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import { create } from "zustand";
+import React, { useEffect, useMemo } from "react";
 import { Pie } from "@ant-design/charts";
-
-type Address = {
-  street: string;
-  city: string;
-};
-
-type Person = {
-  id: number;
-  name: string;
-  email: string;
-  gender: string;
-  address: Address;
-};
+import useAppStore, { Person } from "../../appStore";
 
 type CityData = {
   city: string;
@@ -43,31 +29,14 @@ const generateCityData = (data: Person[]): CityData[] => {
   return cityData;
 };
 
-type ChartPageState = {
-  cityData: CityData[];
-  fetchData: () => void;
-};
-
-const useChartPageStore = create<ChartPageState>((set) => ({
-  cityData: [],
-  fetchData: async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/api/data");
-      const data = response.data;
-      const cityData = generateCityData(data);
-      set({ cityData });
-    } catch (error) {
-      console.error(error);
-    }
-  },
-}));
-
 const ChartPage: React.FC = () => {
-  const { cityData, fetchData } = useChartPageStore();
+  const { data, fetchData } = useAppStore();
 
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  const cityData = useMemo(() => generateCityData(data), [data]);
 
   const chartConfig = {
     appendPadding: 10,

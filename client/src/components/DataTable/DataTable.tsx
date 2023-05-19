@@ -1,72 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Table, Modal, Form, Input, Select, Button } from "antd";
-import { create } from "zustand";
+import useAppStore, { Person } from "../../appStore";
 
 const { Option } = Select;
-
-type Address = {
-  street: string;
-  city: string;
-};
-
-type Person = {
-  id: number;
-  name: string;
-  email: string;
-  gender: string;
-  address: Address;
-};
-
-type AppState = {
-  data: Person[];
-  fetchData: () => void;
-  addPerson: (person: Person) => void;
-  updatePerson: (id: number, person: Person) => void;
-  deletePerson: (id: number) => void;
-};
-
-const useAppStore = create<AppState>((set) => ({
-  data: [],
-  fetchData: async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/api/data");
-      set({ data: response.data });
-    } catch (error) {
-      console.error(error);
-    }
-  },
-  addPerson: async (person) => {
-    try {
-      await axios.post("http://localhost:3000/api/data", person);
-      set((state) => ({ data: [...state.data, person] }));
-    } catch (error) {
-      console.error(error);
-    }
-  },
-
-  updatePerson: async (id, person) => {
-    try {
-      await axios.put(`http://localhost:3000/api/data/${id}`, person);
-      set((state) => ({
-        data: state.data.map((p) => (p.id === id ? person : p)),
-      }));
-    } catch (error) {
-      console.error(error);
-    }
-  },
-
-  deletePerson: async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/api/data/${id}`);
-      set((state) => ({
-        data: state.data.filter((person) => person.id !== id),
-      }));
-    } catch (error) {
-      console.error(error);
-    }
-  },
-}));
 
 const DataTable: React.FC = () => {
   const { data, fetchData, addPerson, updatePerson, deletePerson } =
